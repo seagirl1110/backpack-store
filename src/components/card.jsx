@@ -10,7 +10,14 @@ export default class Card extends React.Component {
   }
 
   handleClick = () => {
-    this.setState((state) => ({ addBasket: !state.addBasket }));
+    const addBasket = this.state.addBasket;
+    const { onInc, onDec } = this.props;
+    if (!addBasket) {
+      onInc();
+    } else {
+      onDec();
+    }
+    this.setState({ addBasket: !addBasket });
   };
 
   render() {
