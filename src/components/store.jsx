@@ -3,6 +3,7 @@ import Basket from "./basket";
 import Card from "./card";
 import Sort from "./sort";
 import Search from "./search";
+import Filter from "./filter";
 const data = require("../data/data.json");
 
 export default class Store extends React.Component {
@@ -58,6 +59,20 @@ export default class Store extends React.Component {
     });
   };
 
+  filterCard = (filterProperty) => {
+    if (filterProperty.length > 0) {
+      let filterColl;
+      for (let property of filterProperty) {
+        filterColl = data.filter((item) => {
+          return item[property.key] === property.value;
+        });
+      }
+      this.setState({
+        items: filterColl,
+      });
+    }
+  };
+
   incCount = () =>
     this.setState((state) => ({ countInBasket: state.countInBasket + 1 }));
 
@@ -67,13 +82,16 @@ export default class Store extends React.Component {
   render() {
     const { countInBasket, items } = this.state;
     return (
-      <div className="wrapper">
+      <div className="store">
         <div className="header">
-          <h1>Backpack Store</h1>
+          <h1 className="logo">Backpack Store</h1>
           <Search onSearch={this.searchCard} />
           <Basket count={countInBasket} />
         </div>
-        <Sort onSort={this.sortCard} />
+        <div className="filter-container">
+          <Filter onFilter={this.filterCard} />
+          <Sort onSort={this.sortCard} />
+        </div>
         <section className="cards">
           {items.map((item, index) => {
             return (
