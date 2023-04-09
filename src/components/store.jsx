@@ -2,6 +2,7 @@ import React from "react";
 import Basket from "./basket";
 import Card from "./card";
 import Sort from "./sort";
+import Search from "./search";
 const data = require("../data/data.json");
 
 export default class Store extends React.Component {
@@ -13,7 +14,7 @@ export default class Store extends React.Component {
     };
   }
 
-  sortChange = (property) => {
+  sortCard = (property) => {
     let value;
     const sortColl = data.sort((a, b) => {
       if (property === "min") {
@@ -47,6 +48,16 @@ export default class Store extends React.Component {
     });
   };
 
+  searchCard = (searchValue) => {
+    const searchColl = data.filter((item) => {
+      const name = `${item.brand} ${item.name}`.toLowerCase();
+      return name.includes(searchValue);
+    });
+    this.setState({
+      items: searchColl,
+    });
+  };
+
   incCount = () =>
     this.setState((state) => ({ countInBasket: state.countInBasket + 1 }));
 
@@ -59,9 +70,10 @@ export default class Store extends React.Component {
       <div className="wrapper">
         <div className="header">
           <h1>Backpack Store</h1>
+          <Search onSearch={this.searchCard} />
           <Basket count={countInBasket} />
         </div>
-        <Sort onSort={this.sortChange} />
+        <Sort onSort={this.sortCard} />
         <section className="cards">
           {items.map((item, index) => {
             return (
