@@ -17,7 +17,7 @@ export default class Store extends React.Component {
 
   sortCard = (property) => {
     let value;
-    const sortColl = data.sort((a, b) => {
+    const sortColl = this.state.items.sort((a, b) => {
       if (property === "min") {
         value = a.price - b.price;
       }
@@ -60,10 +60,14 @@ export default class Store extends React.Component {
   };
 
   filterCard = (filterProperty) => {
-    if (filterProperty.length > 0) {
-      let filterColl;
+    if (filterProperty === 0) {
+      this.setState({
+        items: data,
+      });
+    } else {
+      let filterColl = data;
       for (let property of filterProperty) {
-        filterColl = data.filter((item) => {
+        filterColl = filterColl.filter((item) => {
           return item[property.key] === property.value;
         });
       }
