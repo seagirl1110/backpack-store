@@ -59,16 +59,18 @@ export default class Store extends React.Component {
     });
   };
 
-  filterCard = (filterProperty) => {
-    if (filterProperty === 0) {
+  filterCard (property) {
+    if (property === 0) {
       this.setState({
         items: data,
       });
     } else {
       let filterColl = data;
-      for (let property of filterProperty) {
+      for (const key in property) {
+        const valueColl = property[key];
         filterColl = filterColl.filter((item) => {
-          return item[property.key] === property.value;
+          const valueItem = item[key];
+          return valueColl.includes(valueItem);
         });
       }
       this.setState({
@@ -76,6 +78,23 @@ export default class Store extends React.Component {
       });
     }
   };
+
+  updateFilterProperty = (property) => {
+    const newProperty = {};
+    for (const prop of property) {
+      const key = prop.key;
+      const value = prop.value;
+      if (!newProperty.hasOwnProperty([key])) {
+        newProperty[key] = [value];
+      } else {
+        newProperty[key] = [
+          ...newProperty[key],
+          value,
+        ];
+      }
+    }
+    this.filterCard(newProperty);
+  }
 
   incCount = () =>
     this.setState((state) => ({ countInBasket: state.countInBasket + 1 }));
@@ -93,7 +112,7 @@ export default class Store extends React.Component {
           <Basket count={countInBasket} />
         </div>
         <div className="filter-container">
-          <Filter onFilter={this.filterCard} />
+          <Filter onFilter={this.updateFilterProperty} />
           <Sort onSort={this.sortCard} />
         </div>
         <section className="cards">
