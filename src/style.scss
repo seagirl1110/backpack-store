@@ -55,6 +55,12 @@
     }
 }
 
+.basket {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
 .filter-container {
     display: flex;
     justify-content: space-around;
@@ -64,10 +70,16 @@
     border: 2px solid #708fff;
     border-radius: 5px;
     padding: 10px;
+
+    // .filter-container__inner
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 }
 
 .filter {
-
     // .filter__title
 
     &__title {
@@ -132,10 +144,22 @@
     }
 }
 
-.basket {
-    display: flex;
-    gap: 10px;
-    align-items: center;
+.btn-clear {
+    width: 200px;
+    height: 30px;
+    border-radius: 25px;
+    border: 1px solid #ffa500;
+    outline: none;
+    padding: 5px 15px;
+    margin: 5px 0 10px;
+    font-family: "Roboto", sans-serif;
+    background-color: transparent;
+    transition: all 0.3s;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 0 0 5px #ffa500;
+    }
 }
 
 .cards {

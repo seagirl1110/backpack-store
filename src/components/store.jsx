@@ -12,6 +12,7 @@ export default class Store extends React.Component {
     this.state = {
       countInBasket: 0,
       items: data,
+      clearSettings: false,
     };
   }
 
@@ -46,6 +47,7 @@ export default class Store extends React.Component {
     });
     this.setState({
       items: sortColl,
+      clearSettings: false,
     });
   };
 
@@ -56,10 +58,11 @@ export default class Store extends React.Component {
     });
     this.setState({
       items: searchColl,
+      clearSettings: false,
     });
   };
 
-  filterCard (property) {
+  filterCard(property) {
     if (property === 0) {
       this.setState({
         items: data,
@@ -75,9 +78,10 @@ export default class Store extends React.Component {
       }
       this.setState({
         items: filterColl,
+        clearSettings: false,
       });
     }
-  };
+  }
 
   updateFilterProperty = (property) => {
     const newProperty = {};
@@ -87,14 +91,18 @@ export default class Store extends React.Component {
       if (!newProperty.hasOwnProperty([key])) {
         newProperty[key] = [value];
       } else {
-        newProperty[key] = [
-          ...newProperty[key],
-          value,
-        ];
+        newProperty[key] = [...newProperty[key], value];
       }
     }
     this.filterCard(newProperty);
-  }
+  };
+
+  onClearSettings = () => {
+    this.setState({
+      items: data,
+      clearSettings: true,
+    });
+  };
 
   incCount = () =>
     this.setState((state) => ({ countInBasket: state.countInBasket + 1 }));
@@ -108,12 +116,20 @@ export default class Store extends React.Component {
       <div className="store">
         <div className="header">
           <h1 className="logo">Backpack Store</h1>
-          <Search onSearch={this.searchCard} />
+          <Search onSearch={this.searchCard} clear={this.state.clearSettings} />
           <Basket count={countInBasket} />
         </div>
         <div className="filter-container">
-          <Filter onFilter={this.updateFilterProperty} />
-          <Sort onSort={this.sortCard} />
+          <Filter
+            onFilter={this.updateFilterProperty}
+            clear={this.state.clearSettings}
+          />
+          <div className="filter-container__inner">
+            <Sort onSort={this.sortCard} clear={this.state.clearSettings} />
+            <button className="btn-clear" onClick={this.onClearSettings}>
+              Сбросить настройки
+            </button>
+          </div>
         </div>
         <section className="cards">
           {items.map((item, index) => {
