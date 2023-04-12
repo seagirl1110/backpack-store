@@ -1,11 +1,23 @@
-import React from "react";
+import React from 'react';
 
 export default class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: "",
+      value: '',
     };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.reset !== this.props.reset && this.props.reset === true) {
+      this.resetValue();
+    }
+  }
+
+  resetValue() {
+    this.setState({
+      value: '',
+    });
   }
 
   handleChange = (evt) => {
@@ -17,13 +29,12 @@ export default class Search extends React.Component {
   };
 
   render() {
-    const value = this.props.clear ? "" : this.state.value;
     return (
       <div className="search">
         <input
           className="search__input"
           type="search"
-          value={value}
+          value={this.state.value}
           placeholder="Поиск..."
           autoFocus
           autoComplete="off"

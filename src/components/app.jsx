@@ -6,13 +6,13 @@ import Search from "./search";
 import Filter from "./filter";
 const data = require("../data/data.json");
 
-export default class Store extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       countInBasket: 0,
       items: data,
-      clearSettings: false,
+      resetSettings: false,
     };
   }
 
@@ -47,7 +47,7 @@ export default class Store extends React.Component {
     });
     this.setState({
       items: sortColl,
-      clearSettings: false,
+      resetSettings: false,
     });
   };
 
@@ -58,7 +58,7 @@ export default class Store extends React.Component {
     });
     this.setState({
       items: searchColl,
-      clearSettings: false,
+      resetSettings: false,
     });
   };
 
@@ -78,7 +78,7 @@ export default class Store extends React.Component {
       }
       this.setState({
         items: filterColl,
-        clearSettings: false,
+        resetSettings: false,
       });
     }
   }
@@ -97,10 +97,10 @@ export default class Store extends React.Component {
     this.filterCard(newProperty);
   };
 
-  onClearSettings = () => {
+  onResetSettings = () => {
     this.setState({
       items: data,
-      clearSettings: true,
+      resetSettings: true,
     });
   };
 
@@ -116,17 +116,17 @@ export default class Store extends React.Component {
       <div className="store">
         <div className="header">
           <h1 className="logo">Backpack Store</h1>
-          <Search onSearch={this.searchCard} clear={this.state.clearSettings} />
+          <Search onSearch={this.searchCard} reset={this.state.resetSettings} />
           <Basket count={countInBasket} />
         </div>
         <div className="filter-container">
           <Filter
             onFilter={this.updateFilterProperty}
-            clear={this.state.clearSettings}
+            reset={this.state.resetSettings}
           />
           <div className="filter-container__inner">
-            <Sort onSort={this.sortCard} clear={this.state.clearSettings} />
-            <button className="btn-clear" onClick={this.onClearSettings}>
+            <Sort onSort={this.sortCard} reset={this.state.resetSettings} />
+            <button className="btn-reset" onClick={this.onResetSettings}>
               Сбросить настройки
             </button>
           </div>

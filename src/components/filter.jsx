@@ -10,7 +10,7 @@ export default class Filter extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.clear !== this.props.clear && this.props.clear === true) {
+    if (prevProps.reset !== this.props.reset && this.props.reset === true) {
       this.resetFilters();
     }
   }
