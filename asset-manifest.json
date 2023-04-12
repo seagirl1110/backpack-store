@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/backpack-store/static/css/main.af81e137.css",
+    "main.js": "/backpack-store/static/js/main.e8837ed7.js",
+    "static/media/grizzly_ra-286.png": "/backpack-store/static/media/grizzly_ra-286.aa69e7c7cf2cc49896b9.png",
+    "static/media/hummingbird_ballerina.png": "/backpack-store/static/media/hummingbird_ballerina.8f0105b86a31a1b7d854.png",
+    "static/media/hummingbird_girl.png": "/backpack-store/static/media/hummingbird_girl.36029acfc1dc04d09d8c.png",
+    "static/media/grizzly_ra-292.png": "/backpack-store/static/media/grizzly_ra-292.2aec68a957ff202d092e.png",
+    "static/media/hummingbird_figure-skater.png": "/backpack-store/static/media/hummingbird_figure-skater.de85abaf30376afa195f.png",
+    "static/media/hummingbird_kitten.png": "/backpack-store/static/media/hummingbird_kitten.1319293d09bcbb77ce38.png",
+    "static/media/hummingbird_the-winner.png": "/backpack-store/static/media/hummingbird_the-winner.f79fc627a6e3d984b1e4.png",
+    "static/media/hummingbird_paris.png": "/backpack-store/static/media/hummingbird_paris.df4c4fecfc3a2688927c.png",
+    "static/media/grizzly_rd-953.png": "/backpack-store/static/media/grizzly_rd-953.e9536d0643c1fee141de.png",
+    "static/media/berlingo_breaking-the-law.png": "/backpack-store/static/media/berlingo_breaking-the-law.c06d5d7404369ebf1739.png",
+    "static/media/berlingo_owl.png": "/backpack-store/static/media/berlingo_owl.c19aa7823302200c3213.png",
+    "static/media/grizzly_ru-232.png": "/backpack-store/static/media/grizzly_ru-232.1659fee2a6e19ac94916.png",
+    "static/media/grizzly_rd-142.png": "/backpack-store/static/media/grizzly_rd-142.ce8313f7b7b4e6349df2.png",
+    "static/media/grizzly_ra-186.png": "/backpack-store/static/media/grizzly_ra-186.0fa3b18a67148fc52885.png",
+    "static/media/berlingo_gamepad.png": "/backpack-store/static/media/berlingo_gamepad.bc29b43bcbd143522387.png",
+    "static/media/grizzly_rq-218.png": "/backpack-store/static/media/grizzly_rq-218.d5f2fde7419574d1fec3.png",
+    "static/media/berlingo_triangles.png": "/backpack-store/static/media/berlingo_triangles.aaac1d64da22126c5cd2.png",
+    "static/media/grizzly_rb-256.png": "/backpack-store/static/media/grizzly_rb-256.f0c766d8e766fd4a6de1.png",
+    "static/media/berlingo_hello-meow.png": "/backpack-store/static/media/berlingo_hello-meow.59931cd2d7727e526549.png",
+    "static/media/berlingo_victory.png": "/backpack-store/static/media/berlingo_victory.63eb4aab937292826822.png",
+    "static/media/berlingo_surprised-cat.png": "/backpack-store/static/media/berlingo_surprised-cat.3319d3c952f0b819a3ba.png",
+    "static/media/grizzly_rb-152.png": "/backpack-store/static/media/grizzly_rb-152.fe327894322cf9b98791.png",
+    "static/media/grizzly_rd-044.png": "/backpack-store/static/media/grizzly_rd-044.f330458777a776f4b831.png",
+    "static/media/berlingo_green-blocks.png": "/backpack-store/static/media/berlingo_green-blocks.0d9ccabcc549644f0fdb.png",
+    "static/media/grizzly_rq-008.png": "/backpack-store/static/media/grizzly_rq-008.c4a5e423561d3c142876.png",
+    "static/media/search.svg": "/backpack-store/static/media/search.a28990f9b77b48db4a07.svg",
+    "index.html": "/backpack-store/index.html",
+    "main.af81e137.css.map": "/backpack-store/static/css/main.af81e137.css.map",
+    "main.e8837ed7.js.map": "/backpack-store/static/js/main.e8837ed7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.af81e137.css",
+    "static/js/main.e8837ed7.js"
+  ]
+}
